@@ -1,6 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 import DraftBoard from "@/components/DraftBoard"; // 1. CHANGE IMPORT
 import Link from "next/link";
+import { signOut } from "@/app/actions";
 
 export default async function Home() {
   const supabase = await createClient();
@@ -55,6 +56,14 @@ export default async function Home() {
               </Link>
             )}
           </div>
+          <form action={signOut}>
+            <button
+              className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded"
+              type="submit"
+            >
+              Sign Out
+            </button>
+          </form>
         </header>
       
         {/* 4. SWAP COMPONENT (GameBoard -> DraftBoard) */}

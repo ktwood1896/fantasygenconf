@@ -60,7 +60,7 @@ export default function AdminConsole({ roster, currentResults }: { roster: any[]
     setSaving(false);
 
     if (result.error) {
-      alert('❌ Error: ${result.error}');
+      alert( `❌ Error: ${result.error}` );
     } else {
       alert("✅ Results Published!");
     }

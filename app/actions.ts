@@ -71,6 +71,12 @@ export async function signup(formData: FormData) {
   redirect("/");
 }
 
+export async function signOut() {
+  const supabase = await createClient();
+  await supabase.auth.signOut();
+  return redirect("/login");
+}
+
 // --- GAME ACTIONS ---
 
 export async function submitPicks(picks: any[]) {
