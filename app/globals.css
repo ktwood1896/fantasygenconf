@@ -68,7 +68,7 @@ input, select, textarea {
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-gray-300 dark:border-gray-600;
   }
   body {
     @apply bg-background text-foreground;
