@@ -92,7 +92,7 @@ export async function saveProfile(formData: FormData) {
 
   if (error) {
     console.error("Profile Save Error:", error);
-    return { error: "Could not save profile." };
+    return redirect("/login?error=Could not save profile");
   }
 
   revalidatePath("/", "layout");
