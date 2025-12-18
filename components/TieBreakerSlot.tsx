@@ -3,38 +3,40 @@
 interface TieBreakerSlotProps {
   label: string;
   type: "text" | "number";
-  options?: string[]; // For dropdowns like Colors
-  value: string | number | null;
-  onChange: (val: string | number) => void;
+  options?: string[]; // Only for dropdowns
+  value: string | null;
+  onChange: (val: string) => void;
 }
 
 export default function TieBreakerSlot({ label, type, options, value, onChange }: TieBreakerSlotProps) {
   return (
-    <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm flex flex-col justify-between">
-      <label className="block text-sm font-bold text-gray-700 mb-2">
+    <div className="bg-slate-800 p-4 rounded-lg shadow-md border border-slate-700 hover:border-emerald-500/50 transition">
+      <label className="block text-sm font-bold text-emerald-400 mb-2 uppercase tracking-wide">
         {label}
       </label>
       
       {options ? (
-        // Render a Dropdown if options are provided (e.g., Colors)
+        // Render Dropdown
         <select
           value={value || ""}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full p-2 border border-gray-300 rounded-md bg-gray-50 text-gray-900 focus:ring-2 focus:ring-blue-500 outline-none"
+          className="w-full bg-slate-900 border border-slate-600 text-white rounded-md p-3 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition appearance-none cursor-pointer"
         >
-          <option value="">-- Select --</option>
+          <option value="">-- Make a Guess --</option>
           {options.map((opt) => (
-            <option key={opt} value={opt}>{opt}</option>
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
           ))}
         </select>
       ) : (
-        // Render a Number input if no options (e.g., Temple Count)
+        // Render Number Input
         <input
-          type="number"
+          type={type}
           value={value || ""}
           onChange={(e) => onChange(e.target.value)}
-          placeholder="#"
-          className="w-full p-2 border border-gray-300 rounded-md bg-gray-50 text-gray-900 focus:ring-2 focus:ring-blue-500 outline-none"
+          placeholder="0"
+          className="w-full bg-slate-900 border border-slate-600 text-white rounded-md p-3 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition"
         />
       )}
     </div>
