@@ -112,10 +112,10 @@ export default function DraftBoard({ roster, initialPicks, user }: DraftBoardPro
       {/* 1. ORGANIZATION PRESIDENCIES */}
       <section>
         <div className="flex justify-between items-end mb-4 border-b pb-2">
-           <h2 className="text-2xl font-bold text-gray-800">Organization Presidencies</h2>
+           <h2 className="text-2xl font-bold text-slate-100">Organization Presidencies</h2>
            <button 
              onClick={() => handleClearSection(["relief_society", "young_women", "young_men", "primary", "sunday_school", "bishopric"])}
-             className="text-sm text-red-500 hover:text-red-700 hover:underline"
+             className="text-sm text-slate-400 hover:text-red-400 hover:underline"
            >
              Clear Section
            </button>
@@ -164,12 +164,12 @@ export default function DraftBoard({ roster, initialPicks, user }: DraftBoardPro
       <section>
         <div className="flex justify-between items-end mb-4 border-b pb-2">
           <div>
-            <h2 className="text-2xl font-bold text-gray-800">General Authority Seventies</h2>
-            <span className="text-sm text-gray-500">Pick up to 12</span>
+            <h2 className="text-2xl font-bold text-slate-100">General Authority Seventies</h2>
+            <span className="text-sm text-slate-100">Pick up to 12</span>
           </div>
           <button 
              onClick={() => handleClearSection(["ga_70"])}
-             className="text-sm text-red-500 hover:text-red-700 hover:underline"
+             className="text-sm text-slate-400 hover:text-red-400 hover:underline"
            >
              Clear Section
            </button>
@@ -200,10 +200,10 @@ export default function DraftBoard({ roster, initialPicks, user }: DraftBoardPro
       {/* 3. TIE BREAKERS */}
       <section>
         <div className="flex justify-between items-end mb-4 border-b pb-2">
-          <h2 className="text-2xl font-bold text-gray-800">Tie Breakers</h2>
+          <h2 className="text-2xl font-bold text-slate-100">Tie Breakers</h2>
           <button 
              onClick={() => handleClearSection(["tie_color", "temples", "choir"])}
-             className="text-sm text-red-500 hover:text-red-700 hover:underline"
+             className="text-sm text-slate-400 hover:text-red-400 hover:underline"
            >
              Clear Section
            </button>
@@ -237,7 +237,7 @@ export default function DraftBoard({ roster, initialPicks, user }: DraftBoardPro
         <button
           onClick={handleSave}
           disabled={isSaving}
-          className="bg-blue-600 text-white font-bold py-3 px-12 rounded-full shadow-lg hover:bg-blue-700 hover:scale-105 transition disabled:opacity-50"
+          className="bg-emerald-600 text-white font-bold py-3 px-12 rounded-full shadow-lg hover:bg-emerald-600 hover:scale-105 transition disabled:opacity-50"
         >
           {isSaving ? "Saving..." : "Save Final Roster"}
         </button>

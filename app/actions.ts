@@ -68,13 +68,35 @@ export async function signup(formData: FormData) {
   }
 
   revalidatePath("/", "layout");
-  redirect("/");
+  redirect("/onboarding");
 }
 
 export async function signOut() {
   const supabase = await createClient();
   await supabase.auth.signOut();
   return redirect("/login");
+}
+
+export async function saveProfile(formData: FormData) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (!user) return redirect("/login");
+
+  const displayName = formData.get("displayName") as string;
+
+  // We use "upsert" so it works whether the row exists or not
+  const { error } = await supabase
+    .from("profiles")
+    .upsert({ id: user.id, display_name: displayName });
+
+  if (error) {
+    console.error("Profile Save Error:", error);
+    return { error: "Could not save profile." };
+  }
+
+  revalidatePath("/", "layout");
+  redirect("/");
 }
 
 // --- GAME ACTIONS ---
