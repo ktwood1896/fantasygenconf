@@ -7,6 +7,10 @@ input, select, textarea {
 }
 
 @layer base {
+  body {
+    /* Adjust the dark hex code to match your specific app background */
+    @apply bg-white text-slate-900 dark:bg-[#020617] dark:text-slate-100 transition-colors duration-300;
+  }
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
