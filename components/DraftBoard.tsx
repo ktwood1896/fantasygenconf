@@ -233,7 +233,7 @@ export default function DraftBoard({ roster, initialPicks, user }: DraftBoardPro
       </section>
 
       {/* SUBMIT BUTTON */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200 flex justify-center shadow-lg z-50">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 flex justify-center shadow-lg z-50">
         <button
           onClick={handleSave}
           disabled={isSaving}

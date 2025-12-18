@@ -2,6 +2,7 @@ import { createClient } from "@/utils/supabase/server";
 import DraftBoard from "@/components/DraftBoard";
 import Link from "next/link";
 import { signOut } from "@/app/actions";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default async function Home() {
   const supabase = await createClient();
@@ -52,6 +53,9 @@ export default async function Home() {
 
           {/* Controls Section */}
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
             
             {/* Leaderboard Button (Green Box) */}
             <Link 
